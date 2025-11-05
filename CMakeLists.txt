@@ -6,7 +6,7 @@ if(CMAKE_C_COMPILER)
 endif()
 
 set(LIBNAME "FoliageTool" CACHE STRING "The name of the library")
-set(GODOT_PROJECT_DIR "demo" CACHE STRING "The directory of a Godot project folder")
+set(GODOT_PROJECT_DIR "Demo" CACHE STRING "The directory of a Godot project folder")
 
 # Make sure all the dependencies are satisfied
 find_package(Python3 3.4 REQUIRED)
@@ -61,14 +61,14 @@ target_include_directories(${LIBNAME} PRIVATE
 
 target_sources(${LIBNAME}
     PRIVATE
-    src/register_types.cpp
-    src/register_types.h
-    src/example_class.cpp
-    src/example_class.h
+        FoliageTool/register_types.cpp
+        FoliageTool/register_types.h
+        FoliageTool/example_class.cpp
+        FoliageTool/example_class.h
 )
 
 # Fetch a list of the xml files to use for documentation and add to our target
-file(GLOB_RECURSE DOC_XML LIST_DIRECTORIES NO CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/doc_classes/*.xml")
+file(GLOB_RECURSE DOC_XML LIST_DIRECTORIES NO CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/Documentation/BuiltIn/*.xml")
 
 # conditionally add doc data to compile output
 if(DOC_XML)
